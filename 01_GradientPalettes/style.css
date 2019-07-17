@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+
+/* CSS RESET */
+html {
+  box-sizing: border-box;
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+body {
+    /* background-image: linear-gradient(to right top, #F9F871, #FFC75F, #FF9671); */
+    /* background-image: linear-gradient(to right top, #ccc, #b4b4b4); */
+    /* background-image: linear-gradient(to right top, #051937, #005073, #008e95, #52ca97, #dcff8f); */
+    /* background-image: radial-gradient(circle, #051937, #005073, #008e95, #52ca97, #dcff8f); */
+    background-image: linear-gradient(to right top, #00ff9b, #00f5cc, #00e7ef, #00d6ff, #00c3ff, #48c2fc, #64c1f8, #79c0f4, #77d1f9, #7fe2fb, #91f1fa, #a8fff9);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+/* NAVIGATION */
+.container {
+    width: 80%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.logo {
+    font-family: 'Lobster', cursive;
+    margin-top: 70px;
+    font-size: 5em;
+    font-weight: 700;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 5px 18px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    cursor: default;
+}
+.social-links {
+    padding-top: 100px;
+    padding-bottom: 10px;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+}
+.btn i {
+    font-size: 1.3em;
+    margin-right: 15px;
+}
+.btn--wide {
+    width: 300px;
+    height: 50px;
+    border-radius: 8px;
+}
+.btn--twitter {
+    background: #1da1f2;
+    color: #fff;
+}
+.btn--twitter:hover {
+    background: #0d95e8;
+}
+.btn--facebook {
+    background: #3b5998;
+    color: #fff;
+}
+.btn--facebook:hover {
+    background: #344e86;
+    color: #fff;
+}
+/* MAIN CONTENT */
+.main-content {
+    padding-top: 100px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.box {
+    margin: 50px 5px 5px 5px;
+    width: 250px;
+    height: 300px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .2);
+    -webkit-background-clip: padding-box; /* for Safari */
+    background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+}
+.box-color {
+    display: block;
+    width: 100%;
+    height: 250px;
+    background: red;
+    cursor: pointer;
+}
+.box.active{
+    animation-duration: .5s;
+    animation-name: bounceIn;
+}
+@keyframes bounceIn {
+  0% {
+    opacity: .5;
+    transform: translate(-2%);
+  }
+  60% {
+    transform: translate(2%);
+    opacity: .7;
+  }
+  100% {
+    transform: translate(0%);
+    opacity: 1;
+  }
+}
+.box-meta {
+    display: flex;
+    padding: 8px 20px;
+    line-height: 20px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.box-meta i {
+    color: rgba(0,0,0,0.3);
+}
+[data-color] {
+    font-size: .8em;
+    color: #4B4453;
+    cursor: pointer;
+    padding: 5px 10px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+[data-color]:hover {
+    color: #000;
+
+    font-weight: 700;
+}
+/* FOOTER */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 200px;
+    padding-bottom: 100px;
+    color: #fff;
+
+}
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 2em;
+    font-weight: 700;
+    font-family: 'Lobster', cursive;
+}
+
+.shadow {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.shadow:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
