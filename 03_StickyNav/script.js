@@ -1,0 +1,17 @@
+const nav = document.querySelector('#navigation')
+const container = document.querySelector('#container')
+const x = document.querySelector('.heading-logo')
+const topOfNav = nav.offsetTop
+
+function fixedNavigation()
+{
+    if( window.scrollY >= topOfNav ) {
+        document.body.style.paddingTop = nav.offsetHeight + 'px'
+        document.body.classList.add('fixed-nav')
+    } else {
+        document.body.style.paddingTop = 0 + 'px'
+        document.body.classList.remove('fixed-nav')
+    }
+}
+
+window.addEventListener('scroll', fixedNavigation)
