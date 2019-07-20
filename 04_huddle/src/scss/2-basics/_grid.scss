@@ -1,0 +1,195 @@
+.container {
+    max-width: 1440px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    //flex-direction: row;
+    // border: 2px solid $darkcyan;
+}
+@media ( min-width: 1100px ) {
+    .row {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        // flex-direction: row;
+        // border: 2px solid $darkcyan;
+    }
+    .col-100 {
+        width: 100%;
+        margin-left: 15px;
+        margin-right: 15px;
+        min-height: 1px;
+    }
+    .col-80 {
+        width: 80%;
+        margin-left: 15px;
+        margin-right: 15px;
+        min-height: 1px;
+    }
+    .col-75 {
+        width: 75%;
+        margin-left: 15px;
+        margin-right: 15px;
+        min-height: 1px;
+    }
+    .col-70 {
+        width: 70%;
+        margin-left: 15px;
+        margin-right: 15px;
+        min-height: 1px;
+    }
+    .col-50 {
+        width: 50%;
+        margin-left: 15px;
+        margin-right: 15px;
+        min-height: 1px;
+    }
+    .col-30 {
+        width: 30%;
+        margin-left: 15px;
+        margin-right: 15px;
+        min-height: 1px;
+    }
+    .col-25 {
+        width: 25%;
+        margin-left: 15px;
+        margin-right: 15px;
+        min-height: 1px;
+    }
+    .col-20 {
+        width: 20%;
+        margin-left: 15px;
+        margin-right: 15px;
+        min-height: 1px;
+    }
+    .col-15 {
+        width: 15%;
+        margin-left: 15px;
+        margin-right: 15px;
+        min-height: 1px;
+    }
+    .col-10 {
+        width: 10%;
+        margin-left: 15px;
+        margin-right: 15px;
+        min-height: 1px;
+    }
+}
+
+img {
+    display: flex;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+@media ( max-width: 1100px) {
+    .row {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        //flex-direction: row;
+        // border: 2px solid $darkcyan;
+    }
+    .col-s-10 {
+        width: 10% !important;
+        margin-left: 15px;
+        margin-right: 15px;
+        min-height: 1px;
+
+    }
+    .col-s-20 {
+        width: 20% !important;
+        margin-left: 15px;
+        margin-right: 15px;
+        min-height: 1px;
+
+    }
+    .col-s-25 {
+        width: 25% !important;
+        margin-left: 15px;
+        margin-right: 15px;
+        min-height: 1px;
+
+    }
+    .col-s-30 {
+        width: 30% !important;
+        margin-left: 15px;
+        margin-right: 15px;
+        min-height: 1px;
+
+    }
+    .col-s-50 {
+        width: 50% !important;
+        margin-left: 15px;
+        margin-right: 15px;
+        min-height: 1px;
+
+    }
+    .col-s-70 {
+        width: 70% !important;
+        margin-left: 15px;
+        margin-right: 15px;
+        min-height: 1px;
+
+    }
+    .col-s-100 {
+        width: 100% !important;
+        margin-left: 15px;
+        margin-right: 15px;
+        min-height: 1px;
+
+    }
+
+    .btn-hero-pink {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-presentation {
+        padding-bottom: 70px;
+    }
+
+    .present-one {
+        flex-direction: column;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+
+        h2 {
+            margin-top: 20px;
+        }
+        p {
+            margin-bottom: 30px;
+        }
+    }
+    .presentation-content {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .absolute-box {
+        padding: 25px;
+    }
+    .footer {
+        overflow: hidden;
+    }
+
+    .footer .row {
+        flex-direction: column;
+
+        .footer-box {
+            padding-bottom: 25px;
+        }
+
+        .footer-logo {
+            height: 120px;
+            margin-bottom: 50px;
+        }
+    }
+}
