@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+html, body {
+    height: 100%;
+}
+
+* {
+    font-family: 'Open Sans', 'Lato', 'Roboto', sans-serif;
+    font-size: 18px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Raleway', sans-serif;
+    color: $darkindigo;
+}
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 100%;
+
+}
+
+.presentation {
+    width: 45%;
+    min-height: 100%;
+    background: linear-gradient(45deg, $lightindigo, $darkindigo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 60%;
+
+
+    }
+}
+.content {
+    width: 55%;
+    padding-top: 80px;
+}
+.container {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+    color: $lightindigo;
+    margin-bottom: 100px;
+}
+.main-logo {
+
+}
+.nav-social {
+    ul {
+        list-style: none;
+    }
+    li {
+        display: inline;
+        font-size: 25px;
+        padding: 10px;
+        a {
+            color: $lightindigo;
+            &:hover {
+                color: $darkindigo;
+            }
+        }
+        &:last-child {
+            padding-right: 0;
+        }
+
+    }
+}
+
+.box-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.the-box {
+    h1 {
+        line-height: 1.5em;
+        margin-bottom: 55px;
+    }
+    p {
+        line-height: 1.5em;
+        margin-bottom: 80px;
+    }
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    label {
+        font-weight: 700;
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        color: $darkindigo;
+    }
+}
+.signup-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 160px;
+
+    input {
+        width: 100%;
+        height: 45px;
+        padding: 10px;
+        border: 0;
+        border-radius: 6px;
+    }
+    .btn {
+        cursor: pointer;
+    }
+
+    .btn--large {
+        min-width: 200px;
+        height: 65px;
+        text-align: center;
+        line-height: 60px;
+        margin: 20px;
+        font-size: 1.1em;
+        font-weight: 700;
+    }
+    .btn--green {
+        border: 1px solid darken( $green, 10% );
+        background-color: $green;
+        color: #fff;
+        border-radius: 6px;
+        &:hover {
+            background-color: lighten( $green, 10% );
+            border: 1px solid $green;
+        }
+    }
+
+}
+.shadow {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    &:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+}
+
+
+footer {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 50px;
+    font-size: 1em;
+    text-align: right;
+
+    a {
+        color: $darkindigo;
+        text-decoration: underline;
+        &:hover {
+            color: $lightindigo;
+        }
+    }
+}
+
+
+@media ( max-width: 1200px) {
+
+    .presentation {
+        width: 100%;
+        position: absolute;
+        z-index: 0;
+        display: none;
+
+        img {
+            margin-top: 300px;
+            width: 40%;
+        }
+    }
+    .content {
+        background-image: url(../images/bg-intro.svg);
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: 100%  1000px;
+
+        z-index: 9999;
+        width: 100%;
+        color: #fff;
+    }
+
+    .box-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &:before {
+
+
+            content:url('../images/illustration-main.svg');
+            width: 60%;
+            position: relative;
+        
+            margin-left: auto;
+            margin-right: auto;
+
+            margin-top: 60px;
+            margin-bottom: 400px;
+
+        }
+    }
+    .box-container {
+        // margin-top: 500px;
+    }
+}
