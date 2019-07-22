@@ -4,10 +4,10 @@ For me this was best way to try and make small impovments every day trying to be
 Il try to track and log every corse i take dorning this 100 days.
 
 
-#Rules
+# Rules
 
-+Code minimum an hour every day for the next 100 days.
-+Tweet your progress every day with the #100DaysOfCode hashtag.
++ Code minimum an hour every day for the next 100 days.
++ Tweet your progress every day with the #100DaysOfCode hashtag.
 
 ## Courses Finished During Chalange
 + Javascrpt30 - https://javascript30.com/ - 30 Day vanilla JS coding challange
