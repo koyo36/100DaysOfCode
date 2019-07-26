@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        function PrintStuff( myDocuments ) {
+            this.documents = myDocuments
+        }
+
+        // We add the print method to PrintStuff prototype property so
+        // that other instances ( objects ) can inherit it
+        PrintStuff.prototype.print = function() {
+            console.log(this.documents);
+        }
+
+        // Create a new object with the PrintStuff() constructor, thus allowing
+        // this new object to inherit PrintStuff's properties and methods.
+        var newObj = new PrintStuff('I am a new Object and i can print');
+
+        // newObj inherited all the properties and methods, including the print
+        // method, from the PrintStuff function. No  newObj can call print directly,
+        // even though we never created a print() method on it
+        newObj.print();
+
+
+
+        //---------------------------------
+
+
+        // CONSTRUCTOR
+        // A constructor is a function used for initializing new objects,
+        // and you youse the 'new' keyword to call the constructor
+        function Account() {
+
+        }
+        var userAccount = new Account();
+
+        // All objects that inherit from another object also inherit a constructor
+        // property. And this constructor property is simply a property ( like any var )
+        // that holds or points to the constructor of the object.
+
+        // The constructor in this example is Object()
+        var myObj = new Object()
+        // And if you later want tot find the myObj constructor
+        console.log(myObj.constructor); // Object();
+
+        // Another example: Account() is the constructor
+        var userAccount = new Account();
+        // Find the userAccount object's constructor
+        console.log(userAccount.constructor); // Account()
+
+
+        /*
+            Prototype Attribute of Objects Created with new Object() or Object Literal
+
+            All object created with object literals and with the Object constructor
+            inherits from Object.prototype.
+            Therefore, Object.prototype is the prototype attribute ( or the prototype object )
+            of all objects created with new Object() or with {}
+            Object.prototype itself does not inherit any methods or properties from
+            any other object
+        */
+
+        // The userAccount object inherits from Object and as such its prototype
+        // attribute is Object.prototype
+        var userAccount2 = new Object()
+
+        // This demonstrate the use of an object literal to create th userAccount
+        // The userAccount object inherits from Object therefore, its
+        // prototype attribute is Object.prototype just as the userAccount object does above
+        var userAccount = { name: 'mike'}
+
+
+        /*
+            Prototype Attribute of Objects created with a Constructor Function
+
+            Objects created with the new keyword and any constructor other than
+            the Object() constructor, get their prototype from the constructor function
+
+        */
+        function Account() {
+
+        }
+
+        var userAccount = new Account()
+        // userAccount initialized with the Account() constructor and as such its
+        // prototype attribute( or protoype object) is Account.prototye
+
+
+
+//******************************************************************************
+
+        /*
+            __proto__ is historical getter/setter for prototype
+        */
+        let animal = {
+            eats: true,
+            walk() {
+                alert('Animal walk')
+            }
+        }
+        let rabbit = {
+            jumps: true,
+            __proto__: animal
+        }
+
+        let longEar = {
+            eearLength: 10,
+            __proto__: rabbit
+        }
+        // rabbit.__proto__ = animal
+
+        // walk is taken from the prototype
+        rabbit.walk(); // animal walk
+        console.log(longEar.jumps); // true ( from rabbit )
+
+        //  Writing doesn't use prototype
+        // The prototype is only used for reading properties
+        // Write/delete operations work directly with the object
+
+        rabbit.walk = function()
+        {
+            alert("Rabbit! Bounce-bounce")
+        }
+
+        rabbit.walk();
+
+
+        console.log({rabbit})
+
+
+        // If a property is a getter/setter, than it behaves like a function
+        // getters/setters are looked up in the prototype
+
+        let user = {
+            name: "John",
+            surname: "Smith",
+
+            set fullName(value)
+            {
+                [this.name, this.surname] = value.split(" ");
+            },
+
+            get fullName()
+            {
+                return `${this.name} ${this.surname}`;
+            }
+        }
+
+        let admin = {
+            __proto__: user,
+            isAdmin: true
+        }
+
+        console.log(admin.fullName); // John Smith
+
+        // setter triggers
+        admin.fullName = 'Alice Cooper';
+
+
+
+        /*
+            The value of this
+
+            This is not af affected by prototypes at all
+            No matter where the method is found: in an object or its prototype
+            In a method call, this is always the object before the dot
+
+            For instance, here anima represents a "method storage" and rabbit make use of it
+        */
+
+        // animal has methods
+        let animal = {
+            walk() {
+                if(!this.isSleeping) {
+                    alert('I walk');
+                }
+            },
+            sleep() {
+                this.isSleeping = true;
+            }
+        };
+
+        let rabbit = {
+            name: "White Rabbit",
+            __proto__: animal
+        };
+
+        rabbit.sleep();
+
+        console.log(rabbit.isSleeping); // true
+        console.log(animal.isSleeping); // undefined ( no such property in the prototype)
+
+        /*
+        If we had other objects like bird, snake etc inheriting from animal,
+        they would also gain access to methods of animal. But this in each
+        method would be the corresponding object, evaluated at the call-time
+        (before dot), not animal. So when we write data into this, it is stored
+        into these objects.
+
+        As a result, methods are shared, but the object state is not.
+        */
+
+
+
+        // FOR..IN LOOP
+        // loops over inherited properties too
+
+        let animal = {
+            eats: true
+        };
+
+        let rabbit = {
+            jumps: true,
+            __proto__: animal
+        }
+
+        delete animal.jumps;
+        
+        // Object.keys only return own keys
+        alert(Object.keys(rabbit)); // jumps
+
+        // for..in loops ove both own and inherited keys
+        for( let prop in rabbit ) alert(prop); // jumps, then eats
+
+
+        // we can filter out inherited properties
+
+        for( let prop in rabbit) {
+            let isOwn = rabbit.hasOwnProperty(prop)
+
+            if( isOwn ) {
+                alert(`Our: ${prop}`); // Our: jumps
+            } else {
+                alert(`Inherited: ${prop}`); // Inherited: eats
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

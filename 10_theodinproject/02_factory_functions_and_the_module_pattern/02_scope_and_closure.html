@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+
+        // Scope
+
+        let a = 17;
+
+        const func = x => {
+            let a = x;
+        }
+
+        func(99);
+
+        console.log(a)
+
+        /*
+            All scopes in javascript are creatd with function scope only
+        */
+
+
+        // Private Variables and Functions
+
+        /*
+            Because of the concept of scope, neither of the function created
+            inside of FactoryFunction can be accessed outside of the function itself
+
+            The only way to use eithr of those functions is to return them in the object
+            which is why we can call taco.printString() but not taco.capitalizeString()
+
+
+        */
+
+        const FactoryFunction = string => {
+            const capitalizeString = () => string.toUpperCase();
+            const printString = () => console.log(`-----------${capitalizeString()}-----------`)
+
+            return { printString };
+        }
+
+        const taco = FactoryFunction('taco');
+
+        //printString(); // ERROR!!
+        // capitalizeString(); // ERROR!!
+        // taco.capitalizeString(); // ERROR!!
+        taco.printString(); // this prints "-------TACO-----"
+
+        /*
+            The concept of closure is the idea that functions retain their scope
+            even if they are passed around and called outside of that scope.
+
+        */
+
+        const counterCreator = () => {
+            let count = 0;
+            return () => {
+                console.log( count );
+                count++;
+            }
+        }
+
+        const counter = counterCreator();
+
+        counter();
+        counter();
+        counter();
+        counter();
+        counter();
+
+    </script>
+</body>
+</html>

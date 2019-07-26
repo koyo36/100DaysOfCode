@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+            In object-oriented programming, a class is an extensible program-code-template
+            for creating objects, providing initial values for state(memver variables)
+            and implementations of behavior(member functions of methods)
+        */
+
+        class User {
+
+            constructor(name){
+                this.name = name;
+            }
+
+            sayHi() {
+                alert(this.name)
+            }
+            // getters and setters
+            get name() {
+                return this._name;
+            }
+            set name(value) {
+                if ( value.length < 4 ) {
+                    alert("Name is to short");
+                    return;
+                }
+                this._name = value;
+            }
+        }
+        // add method to prototype
+        User.prototype.sayHello = function() {
+            alert('Hello, ' + this.name);
+        }
+
+        // Usage:
+        let user = new User('John');
+        user.sayHello();
+        alert(typeof User);
+
+
+    </script>
+</body>
+</html>

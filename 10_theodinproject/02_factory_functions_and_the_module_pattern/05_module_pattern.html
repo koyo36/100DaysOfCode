@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+
+        /*
+            ES6 introduced a new feature in JavaScript called 'modules'
+            These are essentially a syntax for importing and exporting code between
+            different JavaScript files.
+
+            Modules are actually very similar to Factory functions
+            The main difference is how they're created
+
+            The concepts are exactly the same as the factory function, however,
+            instead of creating a factory we can use over and over again to
+            create multiple object
+            The Module pattern wraps the factory in IIFE( Immediately Invoked Function Expression )
+        */
+
+        const calculator = (() => {
+            const add = (a, b) => a + b;
+            const sub = (a, b) => a - b;
+            const mul = (a, b) => a * b;
+            const div = (a, b) => a / b;
+
+            return {
+                add,
+                sub,
+                mul,
+                div,
+            };
+        })();
+
+        console.log(calculator.add(3,5));
+        console.log(calculator.sub(6,2));
+        console.log(calculator.mul(14,5534));
+    </script>
+</body>
+</html>

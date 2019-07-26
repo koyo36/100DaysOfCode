@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        // using object literal syntax
+        const myObject = {
+            property: 'Value!',
+            otherProperty: 77,
+            "obnoxious property" : function() {
+                // do stuff
+            }
+        }
+
+        // 2 ways to get information out of an objecct
+        // dot notation and bracket notation
+
+        myObject.property // 'Value!'
+
+        // bracket notation
+        myObject["obnoxious property"] // [function]
+
+        /*
+            Dot notation is cleaner and is usually preferred.
+            but there are pleny of curcumstances when it is not possible to use it.
+        */
+
+        // We can not use variables in dot notation
+        const variable = 'property'
+
+        myObject.variable // this guves us 'undefined' because it's literally lookin for a property named 'variable' in our object
+
+        myObject[variable] // 'Value!'
+    </script>
+</head>
+<body>
+
+</body>
+</html>

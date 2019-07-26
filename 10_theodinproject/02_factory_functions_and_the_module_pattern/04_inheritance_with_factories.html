@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        /*
+            Prototypes and Inheritance
+            Giving our objects access to the methods and properties of another Object
+        */
+
+        const Person = ( name ) => {
+            const sayName = () => console.log(`my name is ${name}`)
+            return {sayName}
+        }
+
+        const Nerd = ( name ) => {
+            // simply create a person and pull out the sayName function
+            const {sayName} = Person(name)
+            const doSomethingNerdy = () => console.log('nerd stuff')
+            return { sayName, doSomethingNerdy}
+        }
+
+        const jeff = Nerd('jeff');
+
+        jeff.sayName(); // my name is jeff
+        jeff.doSomethingNerdy(); // nerd stuff
+
+        /*
+            This pattern is great because it allows you to pick and choose which
+            functions you want to include in your new object.
+            If you want to go ahead and lump ALL of another object in, you can
+            certainly do that as well with Object,assign
+
+        */
+        const  Nerd = (name) => {
+            const prototype = Person(name)
+            const doSomethingNerdy = () => console.log('nerd stuff')
+            return Object.assign({}, prototype, {doSomethingNerdy})
+        }
+
+
+    </script>
+</body>
+</html>

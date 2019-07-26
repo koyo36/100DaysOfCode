@@ -1,0 +1,37 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background: #ccc;
+    font-weight: 24px;
+    font-family: "Bebas", "Lato", "Roboto", sans-serif;;
+}
+.container {
+    width: 80%;
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    border: 1px solid #4b4b4b;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 25px;
+}
+
+.tictactoe {
+    width: 306px;
+    height: 306px;
+
+}
+
+.row-item {
+    float: left;
+    width: 100px;
+    height: 100px;
+    font-size: 70px;
+    border: 1px solid grey;
+    text-align: center;
+    cursor: pointer;
+}

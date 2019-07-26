@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        /*
+            When you have specific type of object that you need to duplicate like our player
+            or inventory items a better way to create them is using an object constructor,
+            which is a function that look like this
+        */
+
+        function Player( name, marker ) {
+            this.name = name
+            this.marker = marker
+        }
+
+        // which we use by calling the function with the keyword `new`
+        const player = new Player('steve', 'X')
+        console.log(player.name) // 'steve'
+
+        /*
+            Just like with objects created using the Object Literal method you
+            can add functions to yhe object
+        */
+        function PlayerNew( name, marker ) {
+            this.name = name
+            this.marker = marker
+            this.sayName = function() {
+                console.log(name)
+            }
+        }
+        const player1 = new PlayerNew('steve', 'X')
+        const player2 = new PlayerNew('also stive', 'O')
+
+        player1.sayName() // logs 'steve'
+        player2.sayName() // logs 'also steve'
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

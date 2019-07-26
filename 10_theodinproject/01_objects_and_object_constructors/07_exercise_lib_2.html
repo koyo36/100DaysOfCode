@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>s</title>
+    <style>
+    /* http://meyerweb.com/eric/tools/css/reset/
+       v2.0 | 20110126
+       License: none (public domain)
+    */
+
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+    	margin: 0;
+    	padding: 0;
+    	border: 0;
+    	font-size: 100%;
+    	font: inherit;
+    	vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section {
+    	display: block;
+    }
+    body {
+    	line-height: 1;
+    }
+    ol, ul {
+    	list-style: none;
+    }
+    blockquote, q {
+    	quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+    	content: '';
+    	content: none;
+    }
+    table {
+    	border-collapse: collapse;
+    	border-spacing: 0;
+    }
+
+
+    html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: inherit;
+    height: inherit;
+}
+
+#addToLib {
+    width: 175px;
+    height: 25px;
+    position: fixed;
+    top: 0.75%;
+    left:  0;
+    right: 0;
+    margin: auto;
+    z-index: 1;
+}
+
+#library {
+    width: 100%;
+    height: 100%;
+    top: 5%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    z-index: 0;
+}
+
+.bookCard {
+    box-sizing: border-box;
+    width: 19.5%;
+    height: 150px;
+    padding: 0.25%;
+    margin: 0.25%;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#form {
+    width: fit-content;
+    height: 160px;;
+    position: absolute;
+    left:  0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 1;
+}
+
+form {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border: solid 1px;
+}
+
+label {
+    width: 251px;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#readOrNot {
+    justify-content: center;
+}
+
+#submit {
+    width: 125px
+}</style>
+
+</head>
+<body>
+
+    <input id='addToLib', type='button', name='addToLib', value='Add a book to your library'>
+        <div id='library'>
+
+        </div>
+        <div id='form' hidden>
+            <form>
+                <label for='title'>
+                    Title:
+                    <input type='text', name='title', id='title'>
+                </label>
+
+                <label for='author'>
+                    Author:
+                    <input type='text', name='author', id='author'>
+                </label>
+
+                <label for='numPages'>
+                    Pages:
+                    <input type='text', name='numPages', id='numPages'>
+                </label>
+
+                <label id='readOrNot'>
+                    Read
+                    <input type='radio', name='readAnswer', value='Already read'>
+                    Not read
+                    <input type='radio', name='readAnswer', value='Not read yet'>
+                </label>
+
+                <input type='button', name='submitBookInfo', value='Submit book info', id='submit'>
+            </form>
+</div>
+
+
+
+
+
+
+<script>
+
+let library = [
+new Book('Molly Moon Stops the World', 'Georgia Bying', '375', 'Not read yet'),
+new Book('My Side of the Mountain', 'Jean Craighead George', '175', 'Not read yet'),
+new Book('Tangerine', 'Edward Bloor', '294', 'Not read yet'),
+new Book('Tree Castle Island', 'Jean Craigfield George', '242', 'Not read yet'),
+new Book('Pictures of Hollis Woods', 'Patricia Reilly Giff', '165', 'Not read yet'),
+new Book('Tails from the Bark Side', 'Brian Kilcommons and Sarah Wilson', '231', 'Not read yet')
+];
+
+const addToLibButton = document.getElementById('addToLib');
+
+addToLibButton.addEventListener('click', showAddBookForm);
+
+const submitButton = document.getElementById('submit');
+submitButton.addEventListener('click', submit)
+
+function Book(title, author, numPages, readOrNot) {
+this.title = title,
+this.author = author,
+this.numPages = numPages,
+this.readOrNot = readOrNot;
+}
+
+Book.prototype.info = function() {
+return [this.title, this.author, this.numPages, this.readOrNot]
+}
+
+Book.prototype.toggleReadProperty = function() {
+if (this.readOrNot == 'Already read'){
+this.readOrNot = 'Not read yet';
+} else {
+this.readOrNot = 'Already read';
+}
+}
+
+function emptyException(message) {
+this.message = message;
+this.name = 'emptyException';
+}
+
+emptyException.prototype.toString = function() {
+return this.name + ': "' + this.message + '" ';
+}
+
+function showAddBookForm() {
+let form = document.getElementById('form');
+alert('Please enter information about the book into the form.');
+form.hidden = false;
+}
+
+if (library.length > 0){
+render();
+}
+
+function submit() {
+let title = document.getElementById('title'),
+author = document.getElementById('author'),
+numPages = document.getElementById('numPages'),
+readOrNot = document.getElementsByName('readAnswer');
+
+try {
+if (title.value == '' || author.value == '' || numPages == '') {
+  throw new emptyException('You cannot leave any fields blank.');
+}
+} catch (err) {
+alert(err.message);
+return;
+}
+
+readOrNot.forEach(function(radioButton) {
+if (radioButton.checked) {
+  readOrNot = radioButton.value;
+}
+});
+
+library.push(new Book(title.value, author.value, numPages.value, readOrNot));
+
+title.value = '';
+author.value = '';
+numPages.value = '';
+form.hidden = true;
+clearLibraryContainer();
+render();
+}
+
+function clearLibraryContainer() {
+let libElement = document.getElementById('library');
+while(libElement.firstChild){
+libElement.removeChild(libElement.firstChild);
+}
+}
+
+function addBookInfoToBookCard(bookCardEle, book){
+book.info().forEach(function(info, index) {
+let textElement = document.createElement('p');
+switch (index) {
+  case 0:
+    textElement.innerText = info;
+    break;
+  case 1:
+    textElement.innerText = `by ${info}`;
+    break;
+  case 2:
+    textElement.innerText = `${info} pages long`;
+    break;
+  default:
+    textElement.classList.add('readStatus')
+    textElement.innerText = `${info}`;
+    break;
+}
+bookCardEle.appendChild(textElement);
+});
+}
+
+function createRemoveButton(spliceIndex){
+let removeButton = document.createElement('input');
+removeButton.type = 'button';
+removeButton.value = 'Remove from library';
+removeButton.addEventListener('click', () =>{
+library.splice(spliceIndex  , 1);
+clearLibraryContainer();
+render();
+});
+
+return removeButton;
+}
+
+function createReadStatusButton(book, bookCard){
+let readToggleButton = document.createElement('input');
+readToggleButton.type = 'button';
+readToggleButton.value = 'Toggle read status';
+readToggleButton.addEventListener('click', () => {
+book.toggleReadProperty();
+readStatusElement = bookCard.childNodes[3];
+readStatusElement.innerText = book.readOrNot;
+});
+return readToggleButton;
+}
+
+function render() {
+let libElement = document.getElementById('library');
+
+library.forEach(function(book, index) {
+let bookCard = document.createElement('span');
+bookCard.classList.add( 'bookCard');
+addBookInfoToBookCard(bookCard, book);
+bookCard.appendChild(createReadStatusButton(book, bookCard));
+bookCard.appendChild(createRemoveButton(index));
+
+libElement.appendChild(bookCard);
+});
+}
+
+</script>
+</body>
+</html>

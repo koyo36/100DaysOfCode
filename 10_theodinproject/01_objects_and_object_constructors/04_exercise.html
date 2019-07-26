@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+    function Book( name, author, pages, status) {
+        this.name   = name
+        this.author = author
+        this.pages  = pages
+        this.status = status
+        this.info  = function() {
+            console.log( name + ' by ' + author + ', ' + pages + ' pages, ' + status )
+        }
+    }
+
+    const book = new Book ( 'The Hobbit', 'J.R.R. Tolkien', '225', 'not read yet')
+
+    book.info()
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

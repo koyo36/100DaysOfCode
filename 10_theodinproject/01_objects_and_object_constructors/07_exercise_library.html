@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+<body>
+
+
+    <div class="container">
+        <div id="booklist">
+
+        </div>
+        <button id="new" onclick="newBook()">
+            Add New Book
+        </button>
+    </div>
+
+
+    <from id="newbook">
+        <label for=""> Book Title
+            <input id="name" name="name" type="text"><br/>
+        </label>
+        <label for=""> Book Author
+        <input id="author" name="author" type="text"><br/>
+        </label>
+        <label for=""> Number of pages
+        <input id="pages" name="pages" type="text"><br/>
+        </label>
+        <label for=""> Book Status
+        <input id="status" name="status" type="text"><br/>
+        </label>
+    </from>
+
+
+    <script>
+
+        let myLibrary = [];
+
+        function Book( name, author, pages, status) {
+            // the constructor
+            this.name         = name
+            this.author       = author
+            this.pages        = pages
+            this.status       = status
+        }
+
+        function addBookToLibrary(book) {
+            // do stuff here
+            myLibrary.push(book)
+        }
+        function getBook(id) {
+            //return myLibrary
+            return `<div>${myLibrary[id].name}, ${myLibrary[id].author}, ${myLibrary[id].pages}, ${myLibrary[id].status} </div><br/>`
+        }
+
+        function render() {
+            // loops through array and displays each book on the page
+            console.log(myLibrary.length)
+            var html = '';
+            for( i = 0; myLibrary.length > i; i++ ) {
+                html += getBook(i);
+            }
+            return html;
+        }
+
+        const book1 = new Book ( 'The Hobbit', 'J.R.R. Tolkien', '225', 'not read yet')
+        addBookToLibrary(book1);
+        const book2= new Book ( 'The Hobbit', 'J.R.R. Tolkien', '225', 'not read yet')
+        addBookToLibrary(book2);
+        const book3 = new Book ( 'The Hobbit', 'J.R.R. Tolkien', '225', 'not read yet')
+        addBookToLibrary(book3);
+        const book4 = new Book ( 'The Hobbit', 'J.R.R. Tolkien', '225', 'not read yet')
+        addBookToLibrary(book4);
+
+        console.log(render());
+
+        document.getElementById('booklist').innerHTML = render();
+
+
+        function newBook() {
+
+
+            let name = document.getElementById('name').value;
+            let author = document.getElementById('author').value;
+            let pages = document.getElementById('pages').value;
+            let status = document.getElementById('status').value;
+
+            let book = new Book(name, author, pages, status);
+            addBookToLibrary(book);
+
+            console.log(render());
+            document.getElementById('booklist').innerHTML = render();
+
+            document.getElementById('name').value = '';
+            document.getElementById('author').value = '';
+            document.getElementById('pages').value = '';
+            document.getElementById('status').value = '';
+
+        }
+
+    </script>
+</body>
+</html>

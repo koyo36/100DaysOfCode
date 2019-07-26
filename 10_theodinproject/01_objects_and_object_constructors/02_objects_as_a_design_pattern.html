@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        /*
+            One of the simplest ways you can begin to organize your code is simply
+            by grouping things into object. Examples from a 'tic tac toe' game
+        */
+
+        // example one
+        const playerOneName = 'tim'
+        const playerTwoName = 'jenn'
+        const playerOneMarker = 'X'
+        const playerTwoMarker = 'O'
+
+        // example two
+        const playerOne = {
+            name: 'tim',
+            marker: 'X'
+        }
+
+        const playerTwo = {
+            name: 'jenn',
+            marker: 'O'
+        }
+
+        function printName(player) {
+            console.log(player.name)
+        }
+
+        function gameOveer(winninPlayer) {
+            console.log("Congratulations!")
+            console.log(winningPlayer.name + ' is the winner!')
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

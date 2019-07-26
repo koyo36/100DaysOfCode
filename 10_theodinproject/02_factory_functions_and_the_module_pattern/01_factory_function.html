@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+
+        // Factory Function
+
+        /*
+            The factory function pattern is similar to constructors, but instead
+            of usign 'new' to create an object, factory functions simply set up and
+            return the new object when you call the function
+        */
+
+        const personFactory = ( name, age ) => {
+            const sayHello = () => console.log('hello!');
+            return { name, age, sayHello };
+        }
+
+        const jeff = personFactory('jeff', 27);
+
+        console.log(jeff.name); // jeff
+
+        jeff.sayHello(); // calls the function and logs hello
+
+
+        // Here is the same thing created suing Construcor pattern
+
+        const Person = function( name, age ) {
+            this.sayHello = () => console.log('hello');
+            this.name = name;
+            this.age = age;
+        }
+
+        const jeff = new Person('jeff', 27);
+
+        // object shorthand
+
+        return { name: name, age: age, sayHello: sayHello }
+
+        // condense
+        return { name, age, sayHello }
+
+        // Turn vairables into objects
+        const name = 'Maynard'
+        const color = 'red'
+        const number = 24
+        const food = 'rice'
+
+        cosole.log({name, color, number, food});
+    </script>
+</body>
+</html>
