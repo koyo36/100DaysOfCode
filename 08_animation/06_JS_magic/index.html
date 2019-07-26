@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body style="background-color: #333;">
+
+    <center>
+        <p>A pure JavaScript Magic in 24 lines of code</p>
+        <canvas id="platno" width="800" height="600"></canvas>
+    </center>
+
+
+    <script>
+
+        const paleta = ['#701206', '#b3633', '#ffc861', '#96ffc9', '#276344'];
+        const platno = document.getElementById('platno');
+        platno.style.backgroundColor = paleta[0];
+        const podloga = platno.getContext('2d');
+        podloga.lineWidth = 10;
+
+        let brojac = 0;
+
+        let crtaj = () => {
+            const krugX = Math.random() * platno.width;
+            const krugY = Math.random() * platno.height;
+            const poluprecnik = Math.random() * 100;
+            const random = Math.ceil(Math.random() * (paleta.length - 1))
+
+            podloga.beginPath();
+            podloga.arc(krugX, krugY, poluprecnik, 0, 2 * Math.PI);
+            podloga.closePath();
+            podloga.strokeStyle = paleta[random];
+            podloga.stroke();
+
+            if( ++brojac == 100) clearInterval(animacija);
+        }
+
+        const animacija = setInterval( crtaj, 40)
+
+    </script>
+</body>
+</html>

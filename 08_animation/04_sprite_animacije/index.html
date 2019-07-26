@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #animation {
+            background-image: url(img/sprite-jednorog.png);
+            background-repeat: no-repeat;
+            height: 102px;
+            width: 140px;
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="animation"></div>
+
+
+    <script>
+
+        window.onload = function() {
+            let frejm = 1;
+            const ukupnoSlicica = 15;
+            const visinaSlicice = 102;
+            const element = document.getElementById('animation');
+
+            setInterval(() => {
+                const y = ( ++frejm % ukupnoSlicica ) * -visinaSlicice;
+                console.log(y);
+                element.style.backgroundPosition = '0px ' + y + 'px';
+            }, 50)
+        }
+
+    </script>
+</body>
+</html>
