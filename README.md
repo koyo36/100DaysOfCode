@@ -13,3 +13,4 @@ Il try to track and log every corse i take dorning this 100 days.
 + Javascrpt30 - https://javascript30.com/ - 30 Day vanilla JS coding challange
 + CSS Grid - http://CSSGrid.io - CSS Grid fundamentals
 + What The Flexbox?! - https://flexbox.io/ - master CSS Flexbox!
++ TheOdinProject - https://www.theodinproject.com/courses/javascript/ - Javascript | ES6, Objects, modules, webpack
