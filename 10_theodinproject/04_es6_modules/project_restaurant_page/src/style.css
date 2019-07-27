@@ -1,0 +1,49 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: #bada55;
+    font-size: 18px;
+    font-family: 'Open Sans', 'Lato', 'Roboto', sans-serif;
+    font-weight: 300;
+    line-height: 2;
+}
+#content {
+    margin-top: 50px;
+    margin-bottom: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    padding: 20px 35px;
+    border-radius: 8px;
+    background: #fff;
+}
+heading {
+    display: flex;
+    flex-wrap: center;
+    justify-content: space-between;
+}
+.logo {
+    font-size: 3rem;
+    text-shadow: 0px 2px 5px #000;
+}
+.nav ul {
+    margin-top: 30px;
+    padding: 0;
+    list-style: none;
+}
+.nav li {
+    display: inline-block;
+}
+.nav li a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 400;
+    padding: 10px 25px;
+}
+
+.weare img {
+    width: 100%;
+    overflow: hidden;
+
+}

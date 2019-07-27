@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+            There are many benefits to writing your code in modules. One of the most
+            compelling is code reuse. If for instance you have written some functions
+            that manipulate DOM in a specific way, putting all of those into their
+            own file as a `module` means that you can copy that file and re-use it very easily!
+        */
+
+        // a file called functionOne.j
+        const functionOne = () => console.log('FUNCTION ONE!')
+
+        export { functionOne }
+
+        // another JS file
+        import {  functionOne } from './functionOne'
+
+        functionOne(); // 'FUNCTION ONE!'
+
+    </script>
+
+</body>
+</html>
