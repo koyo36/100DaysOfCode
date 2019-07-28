@@ -14,3 +14,4 @@ Il try to track and log every corse i take dorning this 100 days.
 + CSS Grid - http://CSSGrid.io - CSS Grid fundamentals
 + What The Flexbox?! - https://flexbox.io/ - master CSS Flexbox!
 + TheOdinProject - https://www.theodinproject.com/courses/javascript/ - Javascript | ES6, Objects, modules, webpack
++ JS OOP - http://aspiringcraftsman.com/2011/12/08/solid-javascript-single-responsibility-principle/ - SOLID Principles
