@@ -16,3 +16,4 @@ Il try to track and log every corse i take dorning this 100 days.
 + TheOdinProject - https://www.theodinproject.com/courses/javascript/ - Javascript | ES6, Objects, modules, webpack
 + JS OOP - http://aspiringcraftsman.com/2011/12/08/solid-javascript-single-responsibility-principle/ - SOLID Principles
 + Clean Code - https://github.com/ryanmcdermott/clean-code-javascript
++ Eloquent JavaScript - https://eloquentjavascript.net/
