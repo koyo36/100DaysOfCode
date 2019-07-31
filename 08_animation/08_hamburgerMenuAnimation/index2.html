@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hamburger Menu Animation</title>
+    <style>
+        body { margin: 0; padding: 0; }
+
+        #container {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            margin: 50px auto;
+            transform: rotate(0deg);
+            transition: .5s ease-in-out;
+            cursor: pointer;
+        }
+        #container span {
+            display: block;
+            position: absolute;
+            height: 9px;
+            width: 100%;
+            background: #d3531a;
+            border-radius: 9px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+        #container span:nth-child(1) {
+            top: 0px;
+        }
+        #container span:nth-child(2) {
+            top: 18px;
+        }
+        #container span:nth-child(3) {
+            top: 36px;
+        }
+        #container.open span:nth-child(1) {
+            top: 18px;
+            transform: rotate(135deg);
+        }
+        #container.open span:nth-child(2) {
+            top: 18px;
+            transform: rotate(-135deg);
+        }
+        #container.open span:nth-child(3) {
+            left: -6px;
+            opacity: 0;
+            _transform: rotate(-135deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script>
+
+        // jQuery
+
+        /*
+        $(document).ready(function(){
+            $('#container').click(
+                function(){
+                    $(this).toggleClass('open');
+                }
+            )
+        })
+        */
+
+        // javascript
+
+        document.addEventListener('DOMContentLoaded' ,function(){
+            var x = document.getElementById('container');
+            console.log(x);
+
+            document.getElementById('container').onclick = function() {
+                this.classList.toggle('open');
+            }
+        }, false);
+    </script>
+</body>
+</html>

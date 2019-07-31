@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jesse Couch - Drawn Hamburger Transition </title>
+    <style>
+        * {
+            transition: .25s ease-in-out;
+            box-sizing: border-box;
+        }
+        body {
+            background: #d9e4ea;
+        }
+        span {
+            display: block;
+            background: #566973;
+            border-radius: 2px;
+        }
+        #menu-toggle {
+            width: 100px;
+            height: 100px;
+            margin: 50px auto;
+            position: relative;
+            cursor: pointer;
+            background: rgba(255,255,255, 0.4);
+            border-radius: 5px;
+        }
+        #menu-toggle:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+        #menu-toggle #hamburger {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+        #menu-toggle #hamburger span {
+            width: 60px;
+            height: 4px;
+            position: relative;
+            top: 24px;
+            left: 20px;
+            margin: 10px 0;
+        }
+        #menu-toggle #hamburger span:nth-child(1) {
+            transition-delay: .5s;
+        }
+        #menu-toggle #hamburger span:nth-child(2) {
+            transition-delay: .625s;
+        }
+        #menu-toggle #hamburger span:nth-child(3) {
+            transition-delay: .75s;
+        }
+        #menu-toggle #cross {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            transform: rotate(45deg);
+        }
+        #menu-toggle #cross span:nth-child(1) {
+            height: 0%;
+            width: 4px;
+            position: absolute;
+            top: 10%;
+            left: 48px;
+            transition-delay: 0s;
+        }
+        #menu-toggle #cross span:nth-child(2) {
+            width: 0%;
+            height: 4px;
+            position: absolute;
+            left: 10%;
+            top: 48px;
+            transition-delay: .25s;
+        }
+        #menu-toggle.open #hamburger span {
+            width: 0%;
+        }
+        #menu-toggle.open #hamburger span:nth-child(1) {
+            transition-delay: 0s;
+        }
+        #menu-toggle.open #hamburger span:nth-child(2) {
+            transition-delay: .125s;
+        }
+        #menu-toggle.open #hamburger span:nth-child(3) {
+            transition-delay: .25s;
+        }
+        #menu-toggle.open #cross span:nth-child(1) {
+            height: 80%;
+            transition-delay: .625s;
+        }
+        #menu-toggle.open #cross span:nth-child(2) {
+            width: 80%;
+            transition-delay: .375s;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="menu-toggle">
+        <div id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div id="cross">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function(){
+            document.getElementById('menu-toggle').onclick = function(){
+                this.classList.toggle('open');
+            }
+        }, false);
+
+    </script>
+</body>
+</html>
